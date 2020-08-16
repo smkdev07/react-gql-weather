@@ -63,6 +63,13 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
+    alignItems: 'flex-start',
+    width: '100%',
+  },
+  subSectionTemperatures: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
   },
@@ -118,7 +125,7 @@ const WeatherCard = (props: WeatherCardProps) => {
         <img
           src={`http://openweathermap.org/img/w/${weather.summary.icon}.png`}
           alt={weather.summary.title}
-          style={{ height: 75, width: 75 }}
+          style={{ height: 75, width: '40%' }}
         />
         <div className={classes.subSection}>
           <p className={classes.mainTemperatureText}>
@@ -133,11 +140,11 @@ const WeatherCard = (props: WeatherCardProps) => {
         {weather.summary.description}
       </div>
       <div className={classes.sectionTemperatures}>
-        <div className={classes.subSection}>
+        <div className={classes.subSectionTemperatures}>
           <p className={classes.temperatureText}>{weather.temperature.min}°</p>
           <p className={classes.labelLowText}>Low</p>
         </div>
-        <div className={classes.subSection}>
+        <div className={classes.subSectionTemperatures}>
           <p className={classes.temperatureText}>{weather.temperature.max}°</p>
           <p className={classes.labelHighText}>High</p>
         </div>

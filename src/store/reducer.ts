@@ -13,7 +13,7 @@ export const reducer = (state: City[], action: Action) => {
         (city) => city.id === action.payload.id
       );
       if (cityIndex === -1) {
-        return [...state, action.payload];
+        return [action.payload, ...state];
       } else {
         return state;
       }

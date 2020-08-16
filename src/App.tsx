@@ -85,11 +85,13 @@ const useStyles = makeStyles({
   },
   citiesContainer: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(4, 1fr)',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
     justifyContent: 'center',
     alignItems: 'center',
+    placeItems: 'center',
     rowGap: '2rem',
     backgroundColor: '#fff',
+    marginTop: '1rem',
     padding: '1rem ',
     width: '100%',
   },
@@ -148,6 +150,13 @@ const App = () => {
         />
       </div>
       <div className={classes.citiesContainer}>
+        {data?.getCityByName ? (
+          <WeatherCard
+            cityData={data.getCityByName}
+            saved={false}
+            buttonClickHandler={handleButtonClick}
+          />
+        ) : null}
         {cities.map((city) => (
           <WeatherCard
             cityData={city}
@@ -156,13 +165,6 @@ const App = () => {
             key={city.id}
           />
         ))}
-        {data?.getCityByName ? (
-          <WeatherCard
-            cityData={data.getCityByName}
-            saved={false}
-            buttonClickHandler={handleButtonClick}
-          />
-        ) : null}
       </div>
     </div>
   );
