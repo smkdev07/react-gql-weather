@@ -116,7 +116,7 @@ const App = () => {
     }
 
     const timeout = setTimeout(() => {
-      setCity((prevState) => event.target.value);
+      setCity(event.target.value);
     }, 500);
 
     timeoutRef.current = timeout;
@@ -129,7 +129,7 @@ const App = () => {
       dispatch({ type: ACTION_TYPES.ADD_CITY, payload: city });
     }
 
-    setCity((prevState) => '');
+    setCity('');
     inputRef.current!.value = '';
   };
 
